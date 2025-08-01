@@ -1,1 +1,1 @@
-Ada Lovelace, the daughter of poet Lord Byron, is often considered the first computer programmer. She collaborated with Charles Babbage on the Analytical Engine in the 19th century. While Babbage designed the machine, Lovelace’s notes included the first published algorithm intended for implementation on a computer.
+Jon is a boy. Jon is 16 years old. Jon is Bob's son.

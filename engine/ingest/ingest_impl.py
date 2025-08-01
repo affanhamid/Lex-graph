@@ -21,7 +21,7 @@ def ingest(
 ) -> Result[KnowledgeGraph]:
     logger.info(f"Ingesting text of length {len(text)}")
     return parser.parse_text(text).bind(
-        lambda sents: ner.extract_entities(sents).bind(
+        lambda sents: ner.extract_entities(text).bind(
             lambda ents: relation_extractor.extract_relations(sents, ents).bind(
                 lambda rels: ontology_builder.build_ontology(ents, rels).map(
                     lambda onto: KnowledgeGraph(

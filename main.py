@@ -15,7 +15,7 @@ def main():
     logger = make_logger()
     file_io = make_file_io(logger)
     parser = make_spacy_parser(SpacyModel.EN_CORE_WEB_SM)
-    ner = make_spacy_ner()
+    ner = make_spacy_ner(SpacyModel.EN_CORE_WEB_SM)
     relation_extractor = make_spacy_relation_extractor()
     ontology_builder = make_spacy_ontology_builder()
     ingestion = make_ingestion(logger, parser, ner, relation_extractor, ontology_builder)
