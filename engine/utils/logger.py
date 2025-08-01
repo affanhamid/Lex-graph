@@ -1,7 +1,7 @@
 import logging
 
-from returns.result import safe
 from engine.types import Result
+from engine.utils.error_handling import safe
 from engine.utils.types import Logger
 
 def make_logger(name: str = "lexgraph") -> Logger:

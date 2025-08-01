@@ -1,5 +1,4 @@
-from returns.result import safe
-from engine.types import Result
+from engine.utils.error_handling import safe
 from engine.utils.types import IO, Logger
 
 def make_file_io(logger: Logger) -> IO:

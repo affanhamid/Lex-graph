@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import List
+from typing import List, Optional
 
 @dataclass(frozen=True)
 class Entity:
@@ -9,9 +9,11 @@ class Entity:
 
 @dataclass(frozen=True)
 class Relation:
+    id: str
     source: str
     target: str
-    kind: str
+    # kind: str
+    relation: str
     confidence: float = 1.0
 
 @dataclass(frozen=True)
