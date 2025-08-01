@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lex-graph"
+version = "0.1.0"
+description = "A Python library for graph processing and analysis"
+authors = [{name = "Lex-graph Team", email = "team@lex-graph.com"}]
+readme = "engine/README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "returns==0.26.0",
+    "toolz==1.0.0",
+    "typing_extensions==4.14.1",
+    "spacy==3.8.7",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=6.0",
+    "pytest-cov>=2.0",
+    "black>=21.0",
+    "flake8>=3.8",
+    "mypy>=0.800",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["engine*"]
+
+[tool.setuptools.package-data]
+"*" = ["*.txt", "*.md"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true 

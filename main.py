@@ -3,20 +3,18 @@ from engine.externals.nlp.types import SpacyModel
 from engine.ingest.ingest import make_ingestion
 from engine.utils.file_io import make_file_io
 from engine.utils.logger import make_logger
+from returns.pointfree import bind
 
 
 def main():
     """Main entry point for the lex-graph engine."""
 
     logger = make_logger()
-    logger.info("Starting lex-graph engine...")
-
     file_io = make_file_io(logger)
-    text = file_io.read_file("sample.txt")
-
     nlp = make_spacy_ner(SpacyModel.EN_CORE_WEB_SM)
     ingestion = make_ingestion(logger, nlp)
-    graph = ingestion.ingest(text)
+
+    graph = file_io.read("sample.txt").bind(ingestion.ingest)
     print(graph)
 
 if __name__ == "__main__":

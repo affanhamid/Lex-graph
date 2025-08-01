@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from returns.result import safe
 import spacy
 import uuid
 from engine.ontology.types import Entity
@@ -7,6 +8,7 @@ from engine.externals.nlp.types import NamedEntityRecognizer, SpacyModel
 def make_spacy_ner(model: SpacyModel) -> NamedEntityRecognizer:
     nlp = spacy.load(model.value)
 
+    @safe
     def extract_entities(text: str):
         doc = nlp(text)
         return [

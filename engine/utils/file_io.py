@@ -1,17 +1,21 @@
-from engine.utils.types import FileIO, Logger
+from returns.result import safe
+from engine.types import Result
+from engine.utils.types import IO, Logger
 
-def make_file_io(logger: Logger) -> FileIO:
-    def read_file(path: str) -> str:
+def make_file_io(logger: Logger) -> IO:
+    @safe
+    def read_file(path: str):
         logger.debug(f"Reading file from {path}")
         with open(path, "r", encoding="utf-8") as f:
             return f.read()
 
-    def write_file(path: str, text: str) -> None:
+    @safe
+    def write_file(path: str, text: str):
         logger.debug(f"Writing to {path}")
         with open(path, "w", encoding="utf-8") as f:
             f.write(text)
     
-    return FileIO(
-        read_file=read_file,
-        write_file=write_file,
+    return IO(
+        read=read_file,
+        write=write_file,
     )
